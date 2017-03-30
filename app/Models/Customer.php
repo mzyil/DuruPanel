@@ -23,7 +23,7 @@ class Customer extends Model
     // protected $fillable = [];
     //protected $hidden = ['customer_group', 'store_id', 'language_id', 'Password', 'Salt', 'Cart', 'Wishlist', 'Newsletter', 'Address_id', 'Custom_field', 'Ip', 'Status', 'Approved', 'Safe', 'Token', 'Code', 'Date_added'];
     // protected $dates = [];
-
+    protected $appends = ["fullname"];
     /*
 	|--------------------------------------------------------------------------
 	| FUNCTIONS
@@ -46,6 +46,11 @@ class Customer extends Model
         return new HasMany(
             $instance->newQuery(), $this, $instance->getTable().'.'.$foreignKey, $localKey
         );
+    }
+
+    public function getFullnameAttribute()
+    {
+        return $this->firstname . " " . $this->lastname;
     }
     /*
 	|--------------------------------------------------------------------------
