@@ -41,13 +41,12 @@ class CustomerCrudController extends CrudController
         // $this->crud->removeFields($array_of_names, 'update/create/both');
 
 
-
-
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
         // $this->crud->removeColumn('column_name'); // remove a column from the stack
-        $this->crud->removeColumns(['customer_id', 'customer_group_id', 'store_id', 'language_id', 'password', 'salt', 'cart', 'wishlist', 'newsletter', 'address_id', 'custom_field', 'ip', 'status', 'approved', 'safe', 'token', 'code', 'date_added']); // remove an array of columns from the stack
+        //$this->crud->removeColumns(['customer_id', 'customer_group_id', 'store_id', 'language_id', 'password', 'salt', 'cart', 'wishlist', 'newsletter', 'address_id', 'custom_field', 'ip', 'status', 'approved', 'safe', 'token', 'code', 'date_added']); // remove an array of columns from the stack
+        $this->crud->setColumns(["firstname", "lastname", "telephone", "email", "fax"]);
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
 
@@ -56,7 +55,7 @@ class CustomerCrudController extends CrudController
         // $this->crud->addButton($stack, $name, $type, $content, $position); // add a button; possible types are: view, model_function
         // $this->crud->addButtonFromModelFunction($stack, $name, $model_function_name, $position); // add a button whose HTML is returned by a method in the CRUD model
         // $this->crud->addButtonFromView($stack, $name, $view, $position); // add a button whose HTML is in a view placed at resources\views\vendor\backpack\crud\buttons
-        // $this->crud->removeButton($name);
+        $this->crud->removeButton("edit");
         // $this->crud->removeButtonFromStack($name, $stack);
 
         // ------ CRUD ACCESS
@@ -64,7 +63,8 @@ class CustomerCrudController extends CrudController
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 
         // ------ CRUD REORDER
-        // $this->crud->enableReorder('label_name', MAX_TREE_LEVEL);
+        //$this->crud->enableReorder('firstname', 1);
+        //$this->crud->allowAccess('reorder');
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
 
         // ------ CRUD DETAILS ROW
@@ -102,40 +102,64 @@ class CustomerCrudController extends CrudController
         //$this->crud->limit(25);
     }
 
-	public function store(StoreRequest $request)
-	{
-		// your additional operations before save here
+    public function store(StoreRequest $request)
+    {
+        // your additional operations before save here
         $redirect_location = parent::storeCrud();
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-	}
+    }
 
-	public function update(UpdateRequest $request)
-	{
-		// your additional operations before save here
+    public function update(UpdateRequest $request)
+    {
+        // your additional operations before save here
         $redirect_location = parent::updateCrud();
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-	}
+    }
 
     public function apiIndex(Request $request)
     {
         $search_term = $request->input('q');
         $page = $request->input('page');
-
-        if ($search_term)
-        {
-            $results = Customer::where('firstname', 'LIKE', '%'.$search_term.'%')->paginate(10);
-        }
-        else
-        {
+        if ($search_term) {
+            $search_terms = explode(" ", $search_term);
+            if(count($search_terms) == 1) {
+                $results = Customer::where('firstname', 'LIKE', '%' . $search_term . '%')
+                    ->orWhere('lastname', 'LIKE', '%' . $search_term . '%')
+                    ->orWhere('email', 'LIKE', '%' . $search_term . '%')
+                    ->orWhere('telephone', 'LIKE', '%' . $search_term . '%')
+                    ->orWhere('fax', 'LIKE', '%' . $search_term . '%')
+                    ->paginate(10);
+            }else{
+                $zeroElem = $search_terms[0];
+                $lastQuery = Customer::where(function($query) use ($zeroElem){
+                    $query->orWhere('firstname', 'LIKE', '%' . $zeroElem . '%');
+                    $query->orWhere('lastname', 'LIKE', '%' . $zeroElem . '%');
+                    $query->orWhere('email', 'LIKE', '%' . $zeroElem . '%');
+                    $query->orWhere('telephone', 'LIKE', '%' . $zeroElem . '%');
+                    $query->orWhere('fax', 'LIKE', '%' . $zeroElem . '%');
+                });
+                for($i=1;$i<count($search_terms);$i++) {
+                    $currElem = $search_terms[$i];
+                    $lastQuery = $lastQuery->where(function ($query) use ($currElem) {
+                        $query->orWhere('firstname', 'LIKE', '%' . $currElem . '%');
+                        $query->orWhere('lastname', 'LIKE', '%' . $currElem . '%');
+                        $query->orWhere('email', 'LIKE', '%' . $currElem . '%');
+                        $query->orWhere('telephone', 'LIKE', '%' . $currElem . '%');
+                        $query->orWhere('fax', 'LIKE', '%' . $currElem . '%');
+                    });
+                }
+                return $lastQuery->paginate(10);
+            }
+        } else {
             $results = Customer::paginate(10);
         }
 
         return $results;
-	}
+    }
 
     public function apiShow($id)
     {
