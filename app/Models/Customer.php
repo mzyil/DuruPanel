@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Backpack\CRUD\CrudTrait;
 
 class Customer extends Model
@@ -28,7 +29,24 @@ class Customer extends Model
 	| FUNCTIONS
 	|--------------------------------------------------------------------------
 	*/
+    public function hasMany($related, $foreignKey = null, $localKey = null)
+    {
+        /**
+         * @type Model $instance
+         * @type Model $relatedObj
+         */
+        $instance = $this->newRelatedInstance($related);
+        $relatedObj = new $related;
+        $instance->setConnection($relatedObj->getConnectionName());
 
+        $foreignKey = $foreignKey ?: $this->getForeignKey();
+
+        $localKey = $localKey ?: $this->getKeyName();
+
+        return new HasMany(
+            $instance->newQuery(), $this, $instance->getTable().'.'.$foreignKey, $localKey
+        );
+    }
     /*
 	|--------------------------------------------------------------------------
 	| RELATIONS
