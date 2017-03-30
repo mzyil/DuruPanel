@@ -73,7 +73,7 @@
                                     @if(is_array($field['attribute']))
                                         var textToReturn = "";
                                         @foreach($field['attribute'] as $attr)
-                                            textToReturn += " " + item["{{ $attr }}"];
+                                            textToReturn += item["{{ $attr }}"] + " ~~ ";
                                         @endforeach
                                         return {
                                             text: textToReturn,

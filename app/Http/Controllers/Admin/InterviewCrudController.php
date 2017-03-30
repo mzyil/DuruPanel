@@ -43,7 +43,7 @@ class InterviewCrudController extends CrudController
             'type' => "select2_from_ajax",
             'name' => 'customer_id', // the column that contains the ID of that connected entity;
             'entity' => 'customer', // the method that defines the relationship in your Model
-            'attribute' => ["firstname", "lastname"], // foreign key attribute that is shown to user
+            'attribute' => ["fullname", "telephone","email", "fax"], // foreign key attribute that is shown to user
             'model' => 'App\Models\Customer', // foreign key model
             'data_source' => url("api/customer"), // url to controller search function (with /{id} should return model)
             'placeholder' => "Müşteri arayın", // placeholder for the select
