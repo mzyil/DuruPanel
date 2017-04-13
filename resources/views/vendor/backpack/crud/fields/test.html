@@ -1,0 +1,610 @@
+<!--suppress ALL -->
+<form class="form-horizontal mt-sm" method="post" novalidate autocomplete="off" data-parsley-priority-enabled="false"
+      action="idefGonder.php">
+    <div class="tab-content">
+
+        <div class="tab-pane" id="tab1">
+
+            <fieldset>
+
+                <div class="form-group">
+                    <!-- Username -->
+                    <label class="control-label col-md-3" for="username">AD * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10">
+                            <input type="text" id="username" name="Ad" placeholder="" style="text-transform:capitalize;"
+                                   class="form-control" required="required" data-validation="length"
+                                   data-validation-length="3-250" value=""
+                                   data-validation-error-msg="<font color='red'>* 1. ZİYARETÇİ BİLGİLERİ > AD bölümünü doldurunuz.</font>">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- Username -->
+                    <label class="control-label col-md-3" for="username">SOYAD * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10">
+                            <input type="text" id="username" name="Soyad" placeholder=""
+                                   style="text-transform:capitalize;" class="form-control" required
+                                   data-validation="length"
+                                   data-validation-length="3-250" value=""
+                                   data-validation-error-msg="<font color='red'>* 1. ZİYARETÇİ BİLGİLERİ > SOYAD bölümünü doldurunuz.</font>">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-3">CİNSİYET * :</label>
+                    <div class="col-md-8">
+                        <div class="radio radio-success">
+                            <input type="radio" name="Cinsiyet" id="radio3" value="Erkek" checked="checked">
+                            <label for="radio3">
+                                Erkek </label>
+                        </div>
+                        <div class="radio radio-success">
+                            <input type="radio" name="Cinsiyet" id="radio4" value="Kadin">
+                            <label for="radio4">
+                                Kadın </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <!-- Username -->
+                    <label class="control-label col-md-3" for="username">CEP TELEFONU * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10">
+                            <input id="phone" type="tel" name="ceptel" placeholder="0090 XXX XXX XX XX"
+                                   class="form-control" required data-validation="length"
+                                   data-validation-length="3-30"
+                                   data-validation-error-msg="<font color='red'>*  1. ZİYARETÇİ BİLGİLERİ > CEP TELEFONU bölümünü doldurunuz.</font>">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- Username -->
+                    <label class="control-label col-md-3" for="username">İŞ TELEFONU * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10">
+                            <input id="workphone" type="tel" name="istel" placeholder="0090 XXX XXX XX XX"
+                                   class="form-control" required data-validation="length"
+                                   data-validation-length="3-30"
+                                   data-validation-error-msg="<font color='red'>*  1. ZİYARETÇİ BİLGİLERİ > İŞ TELEFONU  bölümünü doldurunuz. </font>">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- Email -->
+                    <label class="control-label col-md-3" for="email">E-POSTA * : </label>
+                    <div class="col-md-8">
+                        <div class="col-md-10">
+                            <input type="text" id="emailw" name="Eposta"
+                                   placeholder="" value="" class="form-control" data-validation="email"
+                                   data-validation-error-msg="* 1. ZİYARETÇİ BİLGİLERİ > E-POSTA  bölümünü doldurunuz. ">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <!-- Email -->
+                    <label class="control-label col-md-3" for="email">ÜNVAN * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10">
+                            <input type="text" id="email" name="Unvan"
+                                   placeholder="" class="form-control" required="required" data-validation="length"
+                                   data-validation-length="3-250"
+                                   data-validation-error-msg="<font color='red'>* 1. ZİYARETÇİ BİLGİLERİ > ÜNVAN  bölümünü doldurunuz.</font>">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-3">DEPARTMAN * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-4">
+
+                            <select class="form-control selectpicker required" id="departman" name="Departman"
+                                    data-style="btn-success" data-max-options="1" data-size="6" data-width="100%"
+                                    title="Departman Seçiniz."
+                                    required="required" data-validation="length"
+                                    data-validation-length="1-40"
+                                    data-validation-error-msg="<font color='red'>* 1. ZİYARETÇİ BİLGİLERİ > DEPARTMAN  bölümünü doldurunuz.</font>">
+                                <option value="">Departman Seçiniz</option>
+                                <option value='1310'>İhracat / İthalat</option>
+                                <option value='1311'>Ar-Ge / Mühendislik</option>
+                                <option value='1312'>Satın Alma</option>
+                                <option value='1313'>Satış / Dağıtım</option>
+                                <option value='1314'>Üretim</option>
+                                <option value='1315'>Yönetim</option>
+                                <option value='1316'>Pazarlama</option>
+                                <option value='1317'>Teknik / Bakım / Onarım</option>
+                                <option value='1318'>Finans / Muhasebe</option>
+                                <option value='1319'>Lojistik</option>
+                                <option value='1320'>Kalite / Planlama</option>
+                                <option value='1321'>Diğer</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-6"><input type="text" id="DepartmanDiger" name="DepartmanDiger"
+                                                     placeholder="Diğer" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-3">POZİSYON SEVİYESİ * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-4">
+
+                            <select class="selectpicker" id="pozisyon" name="Pozisyon" data-style="btn-success"
+                                    data-max-options="1" data-size="6" data-width="100%"
+                                    title="Pozisyon Seviyesi Seçiniz."
+                                    required="required" data-validation="length"
+                                    data-validation-length="1-40"
+                                    data-validation-error-msg="<font color='red'>*  1. ZİYARETÇİ BİLGİLERİ > POZİSYON SEVİYESİ  bölümünü doldurunuz.</font>">
+                                <option value="">Pozisyon Seçiniz</option>
+                                <option value='1178'>Direktör / Koordinatör</option>
+                                <option value='1179'>Müdür / Yönetici</option>
+                                <option value='1180'>Genel Müdür</option>
+                                <option value='1181'>Genel Müdür Yardımcısı</option>
+                                <option value='1182'>Firma Sahibi / Ortağı / Kurucusu</option>
+                                <option value='1183'>CEO / CFO / CMO / CTO</option>
+                                <option value='1184'>Yönetim / İcra Kurulu Üyesi</option>
+                                <option value='1185'>Girişimci / Tüccar</option>
+                                <option value='1186'>Uzman / Personel</option>
+                                <option value='1187'>Diğer</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-6"><input type="text" id="email" name="PozisyonDiger"
+                                                     placeholder="Diğer" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+
+
+        <div class="tab-pane" id="tab2">
+
+            <fieldset>
+                <div class="form-group">
+                    <!-- Username -->
+                    <label class="control-label col-md-3" for="username">FİRMA ADI * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10">
+                            <input type="text" id="username" name="FirmaAdi" placeholder="" class="form-control"
+                                   required="required" data-validation="length"
+                                   data-validation-length="3-250" value=""
+                                   data-validation-error-msg="<font color='red'>* 2. FİRMA BİLGİLERİ > FİRMA ADI bölümünü doldurunuz.</font>">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- Username -->
+                    <label class="control-label col-md-3" for="username">FİRMA WEB SİTESİ :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10">
+                            <input type="text" id="username" name="SirketWeb" placeholder=""
+                                   class="form-control" required="required" data-validation="length"
+                                   data-validation-length="3-250"
+                                   data-validation-error-msg="<font color='red'>* 2. FİRMA BİLGİLERİ > WEB SİTESİ bölümünü doldurunuz.</font>">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- Username -->
+                    <label class="control-label col-md-3" for="username">ADRES * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10">
+                            <input type="text" id="username" name="Adres" placeholder="" class="form-control"
+                                   required="required" data-validation="length"
+                                   data-validation-length="3-250"
+                                   data-validation-error-msg="<font color='red'>* 2. FİRMA BİLGİLERİ > ADRES bölümünü doldurunuz.</font>">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- Username -->
+                    <label class="control-label col-md-3" for="username">POSTA KODU :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10">
+                            <input type="text" id="username" name="PostaKodu" placeholder="" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-3">ÜLKE * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10"><select id="countries_states1" name="Ulke"
+                                                       class="form-control input-medium bfh-countries"
+                                                       data-country="TR"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-3">ŞEHİR* :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10"><select class="form-control input-medium bfh-states" name="Sehir"
+                                                       data-country="countries_states1"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-3">ŞİRKET FAALİYET ALANI * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-6">
+                            <select multiple="multiple" id="example-multiple2" name="FaliyetAlani[]"
+                                    data-style="btn-success" data-live-search="true" data-size="6" data-width="100%"
+                                    title="Faaliyet Alanı Seçiniz."
+                                    required="required" data-validation="length"
+                                    data-validation-length="1-80"
+                                    data-validation-error-msg="<font color='red'>* 2. FİRMA BİLGİLERİ > ŞİRKET FAALİYET ALANI bölümünü doldurunuz.</font>">
+                                <option value='3127'>KARA</option>
+                                <option value='3128'>DENİZ</option>
+                                <option value='3129'>HAVACILIK VE UZAY</option>
+                                <option value='3130'>ULAŞIM VE LOJİSTİK DESTEK FAALİYETLERİ</option>
+                                <option value='3131'>LEVAZIM MALZEME ARAÇ VE GEREÇLERİ</option>
+                                <option value='3132'>MÜHENDİSLİK</option>
+                                <option value='3133'>YAZILIM HİZMETLERİ</option>
+                                <option value='3134'>KAMU KURUM VE KURULUŞLARI</option>
+                                <option value='3135'>ÜNİVERSİTELER</option>
+                                <option value='3136'>SİVİL TOPLUM ÖRGÜTLERİ</option>
+                                <option value='3137'>BASIN VE İLGİLİ YAYIN KURULUŞLARI</option>
+                                <option value='3138'>DİĞER</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-4"><input type="text" id="email" name="FaliyetAlanDiger"
+                                                     placeholder="Diğer" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-3">FAALİYET TÜRÜ * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-6">
+                            <select class="selectpicker" multiple="multiple" id="faliyetur" name="FaliyetTur[]"
+                                    data-style="btn-success" data-live-search="true" data-size="6" data-width="100%"
+                                    title="Faaliyet Türü Seçiniz."
+                                    required="required" data-validation="length"
+                                    data-validation-length="1-40"
+                                    data-validation-error-msg="<font color='red'>* 2. FİRMA BİLGİLERİ > FAALİYET TÜRÜ bölümünü doldurunuz.</font>">
+                                <option value='1287'>Üretici / İmalatçı</option>
+                                <option value='1288'>Distribütör</option>
+                                <option value='1289'>Bayi / Franchise</option>
+                                <option value='1290'>İthalatçı</option>
+                                <option value='1291'>İhracatçı</option>
+                                <option value='1292'>Hammadde Tedarikçisi</option>
+                                <option value='1293'>Hizmet Sağlayıcı</option>
+                                <option value='1294'>Danışmanlık ve Eğitim</option>
+                                <option value='1295'>Kamu Kurumu / Dernek/ STK</option>
+                                <option value='1296'>Diğer</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-4"><input type="text" id="email" name="FaliyetTurDiger"
+                                                     placeholder="Diğer" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-3">ÇALIŞAN SAYISI * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-10"><select class="selectpicker" id="pozisyon" name="CalisanSayi"
+                                                       data-style="btn-success" data-max-options="1" data-size="6"
+                                                       data-width="100%" title="Çalışan Sayısı Seçiniz.">
+
+                            <option value="">Çalışan Sayısı Seçiniz.</option>
+                            <option value="1-9">1-9</option>
+                            <option value="10-49">10-49</option>
+                            <option value="50-249">50-249</option>
+                            <option value="250+">250+</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="tab-pane" id="tab3">
+
+            <br>
+            <br>
+
+
+            <fieldset>
+
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-3">FUAR KAPSAMINDA İLGİLENDİĞİNİZ ÜRÜN GRUPLARI *
+                        :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-6">
+                            <select multiple="multiple" id="kapsam" name="Kapsam[]" data-size="5" data-width="100%"
+                                    data-validation="length"
+                                    data-validation-length="1-250"
+                                    data-validation-error-msg="* 3. FUAR İLE İLGİLİ BİLGİLER > FUAR KAPSAMINDA İLGİLENDİĞİNİZ ÜRÜN GRUPLARI bölümünü doldurunuz.">
+                                <optgroup label='KARA' data-max-options="auto">
+                                    <option value='4459'>Ana Muharebe Tankları</option>
+                                    <option value='4460'> Zırhlı Muharebe Araçları</option>
+                                    <option value='4461'> Mayına Dayanıklı Araçlar</option>
+                                    <option value='4462'> Taktik Araçlar</option>
+                                    <option value='4463'> Topçu Sistemleri</option>
+                                    <option value='4464'> Piyade Silahları</option>
+                                    <option value='4465'> Komuta, Kontrol ve Komünikasyon (C3)Sistemleri</option>
+                                    <option value='4466'> İstihbarat, Gözetleme ve Keşif (ISR) Sistemleri</option>
+                                    <option value='4467'> Dost/Düşman Tanıma Sistemleri</option>
+                                    <option value='4468'> Gece Görüş Sistemleri</option>
+                                    <option value='4469'> Termal Sistemler</option>
+                                    <option value='4470'> Hedef Tespit ve Teşhis Sistemleri</option>
+                                    <option value='4471'> Lazer Teknolojileri</option>
+                                    <option value='4472'> Elektronik Harp Sistemleri</option>
+                                    <option value='4473'> Ağ Merkezli Harp Sistemleri</option>
+                                    <option value='4474'> Haberleşme Sistemleri</option>
+                                    <option value='4475'> Dinleme ve Karıştırma Sistemleri</option>
+                                    <option value='4476'> Mühimmat</option>
+                                    <option value='4477'> Uzaktan Komutalı Silah İstasyonları</option>
+                                    <option value='4478'> Hava Savunma Sistemleri</option>
+                                    <option value='4479'> Sabit ve Döner Kanatlı Platformlar</option>
+                                    <option value='4480'> İnsansız Sistemler</option>
+                                    <option value='4481'> Eğitim ve Simülasyon Sistemleri</option>
+                                    <option value='4482'> Bilgisayarlar ve Yazılım</option>
+                                    <option value='4483'> Güç Paketleri</option>
+                                    <option value='4484'> İstihkam Araç ve Malzemesi</option>
+                                    <option value='4485'> Engel ve Engel Temizleme Malzemesi</option>
+                                    <option value='4486'> Köprücü Sistem ve Teçhizatı</option>
+                                    <option value='4487'> Kurtarma Sistemleri</option>
+                                    <option value='4488'> KBRN Sistemleri ve Koruyucu Teçhizat</option>
+                                    <option value='4489'> Zırh Sistemleri ve Balistik Malzeme</option>
+                                    <option value='4490'> Kamuflaj Malzemeleri</option>
+                                    <option value='4491'> Kara Mayını Tespit ve Temizleme</option>
+                                    <option value='4492'> Haritacılık ve Harita Sistemleri</option>
+                                    <option value='4493'> Geleceğin Askeri Kişisel Malzeme ve Teçhizatı</option>
+                                    <option value='4494'> Şelterler</option>
+                                    <option value='4495'> Patlayıcı Madde İmha (EOD)</option>
+                                    <option value='4496'> Lojistik Destek Üniteleri</option>
+                                </optgroup>
+                                <optgroup label='	DENİZ' data-max-options="auto">
+                                    <option value='4498'> Muharebe ve Destek Gemileri</option>
+                                    <option value='4499'> Sabit ve Döner Kanatlı Platformlar</option>
+                                    <option value='4500'> Uzaktan Komutalı Silah İstasyonları</option>
+                                    <option value='4501'> Elektronik Harp ve Öz Savunma Sistemleri</option>
+                                    <option value='4502'> Elektronik Destek Sistemleri</option>
+                                    <option value='4503'> İnsansız Sistemler</option>
+                                    <option value='4504'> Komuta, Kontrol ve Haberleşme Sistemleri</option>
+                                    <option value='4505'> Atış Kontrol ve Hedef Tespit Sistemleri</option>
+                                    <option value='4506'> Muharebe Yönetim Sistemleri</option>
+                                    <option value='4507'> Haberleşme Sistemleri</option>
+                                    <option value='4508'> Denizaltı Savunma Harbi Sistemleri</option>
+                                    <option value='4509'> Su-Üstü Savunma Harbi Sistemleri</option>
+                                    <option value='4510'> Hava Savunma Harbi Sistemleri</option>
+                                    <option value='4511'> Güç Paketleri</option>
+                                    <option value='4512'> Gemi Elektrik Sistemleri</option>
+                                    <option value='4513'> Gemi Topları ve Mühimmatı</option>
+                                    <option value='4514'> Füze ve Güdümlü Mermiler</option>
+                                    <option value='4515'> Torpidolar ve Torpido Savunması</option>
+                                    <option value='4516'> Nokta Savunma Sistemleri ve Yakın Savunma Sistemleri
+                                    </option>
+                                    <option value='4517'> Hava Savunma Sistemleri</option>
+                                    <option value='4518'> Gemi Alt-Sistemleri</option>
+                                    <option value='4519'> De-Gaussing Sistemleri</option>
+                                    <option value='4520'> Radarlar</option>
+                                    <option value='4521'> Sonarlar</option>
+                                    <option value='4522'> Uzaktan Komutalı Araçlar</option>
+                                    <option value='4523'> Dalma Teçhizatı ve Kurtarma Destek Malzemeleri</option>
+                                    <option value='4524'> Eğitim ve Simülasyon Sistemleri</option>
+                                    <option value='4525'> Eğitim Amaçlı Yelkenli Tekneler</option>
+                                    <option value='4526'> Bilgisayarlar ve Yazılım</option>
+                                    <option value='4527'> Gemi Tasarımı ve Tersaneler</option>
+                                    <option value='4528'> Gemi Klaslandırma Hizmetleri</option>
+                                    <option value='4529'> Kompozit Malzeme</option>
+                                    <option value='4530'> Sahte Hedef ve Dekoylar</option>
+                                    <option value='4531'> Lojistik Destek Üniteleri</option>
+                                    <option value='4532'> Isıtma, Havalandırma ve Soğutma Sistemleri</option>
+                                    <option value='4533'> Gemi İnşa Malzeme ve Donanımları</option>
+                                </optgroup>
+                                <optgroup label='	HAVACILIK VE UZAY' data-max-options="auto">
+                                    <option value='4535'> Sabit Kanatlı Platformlar</option>
+                                    <option value='4536'> Döner Kanatlı Platformlar</option>
+                                    <option value='4537'> Hava Savunma Sistemleri</option>
+                                    <option value='4538'> Güdümlü Füzeler</option>
+                                    <option value='4539'> Elektronik Harp Teknolojileri</option>
+                                    <option value='4540'> Fırlatma Teknolojileri</option>
+                                    <option value='4541'> Uydular</option>
+                                    <option value='4542'> Uzay Hizmetleri ve Araştırma Kurumları</option>
+                                    <option value='4543'> Uzay Ajansları</option>
+                                    <option value='4544'> Yer Kontrol Teknolojileri</option>
+                                    <option value='4545'> Görüntü Kıymetlendirme</option>
+                                    <option value='4546'> Bilgi İşleme ve Değerlendirme</option>
+                                    <option value='4547'> Komuta, Kontrol ve Haberleşme Sistemleri</option>
+                                    <option value='4548'> Dost/Düşman Tanıma Sistemleri</option>
+                                    <option value='4549'> Elektronik Harp Podları</option>
+                                    <option value='4550'> İstihbarat, Keşif ve Gözetleme Podları</option>
+                                    <option value='4551'> Hedef Tespit ve Navigasyon Podları</option>
+                                    <option value='4552'> İnsansız Sistemler</option>
+                                    <option value='4553'> Dronlar ve Hedef Uçakları</option>
+                                    <option value='4554'> Hava Trafik Kontrol</option>
+                                    <option value='4555'> Havaalanı Donanımları ve Yer Destek Sistemleri
+                                    </option>
+                                    <option value='4556'> Uçak Alt-Sistemleri</option>
+                                    <option value='4557'> Uçak Motorları</option>
+                                    <option value='4558'> Uçak Görev Teçhizatı</option>
+                                    <option value='4559'> Aviyonik Teçhizat</option>
+                                    <option value='4560'> Seyrüsefer Sistemleri ve GPS</option>
+                                    <option value='4561'> Kask Sistemleri ve Gece Görüş Gözlükleri</option>
+                                    <option value='4562'> Eğitim ve Simülasyon Sistemleri</option>
+                                    <option value='4563'> Bilgisayarlar ve Yazılım</option>
+                                    <option value='4564'> Pilot Aksesuarları</option>
+                                    <option value='4565'> Paraşüt Sistemleri</option>
+                                    <option value='4566'> De-Briefing Sistemleri</option>
+                                    <option value='4567'> Taktik Araçlar</option>
+                                    <option value='4568'> Yakıt Tankerleri</option>
+                                    <option value='4569'> Harici Güç Kaynakları</option>
+                                    <option value='4570'> Bomba Taşıyıcılar</option>
+                                    <option value='4571'> Beka Artırma Kit ve Teçhizatı</option>
+                                    <option value='4572'> Lojistik Destek Üniteleri</option>
+                                </optgroup>
+                                <optgroup label='	ULAŞIM VE LOJİSTİK DESTEK FAALİYETLERİ'
+                                          data-max-options="auto">
+                                    <option value='4574'> Kara Taşıtları</option>
+                                    <option value='4575'> Elektrik - Elektronik - Haberleşme - BT /
+                                        Yazılım
+                                    </option>
+                                </optgroup>
+                                <option value='4576'> Askeri Tıp Araç, Gereç ve Sistemleri</option>
+                                <option value='4577'> Jandarma ve Sivil Güvenlik Sistemleri</option>
+                                <option value='4578'> Yapı / İnşaat / Dekorasyon</option>
+                                <option value='4579'> Makineler</option>
+                                <option value='4580'> Ölçme ve Araştırma Cihazları</option>
+                                <optgroup label='	LEVAZIM MALZEME ARAÇ VE GEREÇLERİ'
+                                          data-max-options="auto">
+                                    <option value='4582'> Giyim ve Diğer Tekstil Ürünleri</option>
+                                    <option value='4583'> Tüketim Malları</option>
+                                    <option value='4584'> Malzeme Nakil Teçhizatı, Atölye Tezgahları
+                                    </option>
+                                    <option value='4585'> Nalburiye Hırdavat</option>
+                                    <option value='4586'> Büro İhtiyaçları</option>
+                                    <option value='4587'> Hizmetler</option>
+                                </optgroup>
+                                <optgroup label='DİGER' data-max-options="auto">
+                                    <option value='4589'>Diğer</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="col-md-4"><input type="text" id="email" name="KapsamDiger"
+                                                     placeholder="Diğer" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-3">ANA ZİYARET AMACI* :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-6">
+                            <select class="selectpicker" multiple="multiple" id="faliyetur" name="ZiyaretAmac[]"
+                                    data-style="btn-success" data-size="7" data-width="100%"
+                                    title="Ziyaret Amacı Seçiniz." required="required" data-validation="length"
+                                    data-validation-length="1-40"
+                                    data-validation-error-msg="<font color='red'>* 3. FUAR İLE İLGİLİ BİLGİLER > ANA ZİYARET AMACI bölümünü doldurunuz.</font>">
+                                <option value='776'>Satın alma (Yeni tedarikçi, ürün veya hizmetler bulma)</option>
+                                <option value='777'>Yeni iş bağlantıları kurma</option>
+                                <option value='778'>Mevcut iş ortakları ile görüşme</option>
+                                <option value='779'>Yeni trend, teknoloji ve ürünler hakkında bilgi edinme</option>
+                                <option value='780'>Sektör hakkında genel bilgi edinme</option>
+                                <option value='781'>Satış (Yeni müşteri bulma, ürün ve hizmetleri tanıtma)</option>
+                                <option value='782'>Diğer</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-4"><input type="text" id="email" name="ZiyaretAmacDiger"
+                                                     placeholder="Diğer" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-10">YIL BOYUNCA SEKTÖR,KATILIMCI FİRMALAR VE FUAR
+                        İLE İLGİLİ HABER, DUYURU VE ETKİNLİKLERİN YER ALDIĞI E-POSTA BÜLTENİNE ABONE OLMAK İSTER
+                        MİSİNİZ? </label>
+                    <div class="col-md-2">
+                        <div class="col-md-12">
+
+                            <div class="checkbox checkbox-success">
+                                <input id="checkbox3" name="Bulten" value="1" type="checkbox" checked="checked">
+
+                                <label for="checkbox3">
+                                    Evet </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </fieldset>
+        </div>
+        <div class="tab-pane" id="tab4">
+
+            <br>
+            <br>
+
+
+            <fieldset>
+
+
+                <div class="form-group">
+                    <label for="courier" class="control-label col-md-3">UYRUĞUNUZ * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-5">
+                            <select class="form-control selectpicker required" id="uyruk" name="uyruk"
+                                    data-style="btn-success" data-max-options="1" data-size="6" data-width="100%"
+                                    title="Uyruk Seçiniz."
+                                    required="required" data-validation="length"
+                                    data-validation-length="1-40"
+                                    data-validation-error-msg="<font color='red'>* Bu alan zorunludur.</font>">
+                                <option value="1">TC - TÜRKİYE CUMHURİYETİ</option>
+                                <option value="2">DİĞER</option>
+
+
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" id="gosterTc">
+                    <label for="courier" class="control-label col-md-3" id="tcBaslik">VATANDAŞLIK NUMARANIZ * :</label>
+                    <div class="col-md-8">
+                        <div class="col-md-5">
+                            <input id="TCNo" type="text" name="TCNo" placeholder="" class="form-control" required
+                                   data-validation="length"
+                                   data-validation-length="5-50"
+                                   data-validation-error-msg="<font color='red'>*  4. DOĞRULAMA BİLGİLERİ > VATANDAŞLIK NUMARASI veya PASAPORT NUMARASI bölümünü doldurunuz.</font>">
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+
+                </div>
+                <div class="alert alert-danger" id="email-error-dialog">
+                    <div class="form-group">
+                        <label for="courier" class="control-label col-md-8 pull-right"><font color='red'>* ile işaretli
+                            alanların doldurulması zorunludur. </font></label>
+
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="description ml mr mt-n-md">
+            <ul class="pager wizard">
+                <li class="previous">
+                    <button class="btn btn-success pull-left"><i class="fa fa-caret-left"></i> ÖNCEKİ</button>
+                </li>
+                <input name="Ref" type="hidden" id="Referans1" value=""/>
+                <input name="FormId" type="hidden" id="Referans" value="9978943"/>
+                <input name="FuarNumarasi" type="hidden" id="Referans" value="1391"/>
+                <li class="next">
+                    <button class="btn btn-success pull-right">SONRAKİ <i class="fa fa-caret-right"></i></button>
+                </li>
+                <li class="finish" style="display: none">
+                    <button type="submit" class="btn btn-success pull-right">DAVETİYE OLUŞTUR <i
+                            class="fa fa-check"></i></button>
+
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</form>

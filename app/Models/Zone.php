@@ -3,25 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Backpack\CRUD\CrudTrait;
 
-class Interview extends Model
+class Zone extends Model
 {
-    use CrudTrait;
-
-     /*
-	|--------------------------------------------------------------------------
-	| GLOBAL VARIABLES
-	|--------------------------------------------------------------------------
-	*/
-
-     protected $connection = "mysql";
-    //protected $table = 'interviews';
-    //protected $primaryKey = 'id';
-    // public $timestamps = false;
-    // protected $guarded = ['id'];
-    protected $fillable = ['course', 'content', 'result', 'customer_id'];
-
+    use HasSelect2Array;
+    /*
+   |--------------------------------------------------------------------------
+   | GLOBAL VARIABLES
+   |--------------------------------------------------------------------------
+   */
+    protected $connection = "mysql2";
+    protected $table = 'oc_zone';
+    protected $primaryKey = 'zone_id';
+    public $timestamps = false;
+    //protected $guarded = ['address_id'];
+    protected $fillable = ['status'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -31,25 +27,16 @@ class Interview extends Model
 	|--------------------------------------------------------------------------
 	*/
 
-    public static function getResultStringArray()
-    {
-        return [
-            0 => 'Olumsuz',
-            1 => 'Beklemede',
-            2 => 'Olumlu'
-        ];
-    }
     /*
 	|--------------------------------------------------------------------------
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
-    public function customer()
+    public function country()
     {
-        $relation = $this->belongsTo('App\Models\Customer', "customer_id", "customer_id");
-        //$relation->table =  "mysql.interviews";
-        return $relation;
+        return $this->belongsTo('App\Models\Country');
     }
+
     /*
 	|--------------------------------------------------------------------------
 	| SCOPES

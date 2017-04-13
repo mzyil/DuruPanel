@@ -1,34 +1,27 @@
-<?php
+<?php 
 
-return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Backpack\Base Language Lines
-    |--------------------------------------------------------------------------
-    */
-
-    'registration_closed'  => 'Registration is closed.',
-    'first_page_you_see'   => 'The first page you see after login',
-    'login_status'         => 'Login status',
-    'logged_in'            => 'You are logged in!',
-    'toggle_navigation'    => 'Toggle navigation',
-    'administration'       => 'ADMINISTRATION',
-    'user'                 => 'USER',
-    'logout'               => 'Logout',
-    'login'                => 'Login',
-    'register'             => 'Register',
-    'name'                 => 'Name',
-    'email_address'        => 'E-Mail Address',
-    'password'             => 'Password',
-    'confirm_password'     => 'Confirm Password',
-    'remember_me'          => 'Remember Me',
-    'forgot_your_password' => 'Forgot Your Password?',
-    'reset_password'       => 'Reset Password',
-    'send_reset_link'      => 'Send Password Reset Link',
-    'click_here_to_reset'  => 'Click here to reset your password',
-    'unauthorized'         => 'Unauthorized.',
-    'dashboard'            => 'Dashboard',
-    'handcrafted_by'       => 'Handcrafted by',
-    'powered_by'           => 'Powered by',
+ return [
+    "click_here_to_reset" => "Şifrenizi sıfırlamak için tıklayınız.",
+    "confirm_password" => "Şifreyi Onayla",
+    "dashboard" => "Yönetim",
+    "email_address" => "E-mail adresi",
+    "forgot_your_password" => "Şifrenizi mi unuttunuz?",
+    "login_status" => "Giriş durumu",
+    "first_page_you_see" => "Giriş yaptıktan sonra gördüğünüz ilk sayfa",
+    "logged_in" => "Giriş yaptınız!",
+    "handcrafted_by" => "Tarafından",
+    "registration_closed" => "Kayıt olma kapalı.",
+    "user" => "Kullanıcı",
+    "login" => "Giriş",
+    "name" => "İsim",
+    "toggle_navigation" => "Navigasyonu aç",
+    "password" => "Şifre",
+    "powered_by" => "Tarafından",
+    "register" => "Kayıt ol",
+    "remember_me" => "Beni Hatırla",
+    "reset_password" => "Şifre sıfırla",
+    "send_reset_link" => "Şifre Sıfırlama Linki Gönder",
+    "unauthorized" => "Onaylanmamış.",
+    "administration" => "Yönetim",
+    "logout" => "Çıkış Yap"
 ];

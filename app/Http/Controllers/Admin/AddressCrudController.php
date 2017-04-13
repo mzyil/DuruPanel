@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Customer;
-use App\Models\Interview;
+use App\Models\Country;
+use App\Models\Zone;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\InterviewRequest as StoreRequest;
-use App\Http\Requests\InterviewRequest as UpdateRequest;
+use App\Http\Requests\AddressRequest as StoreRequest;
+use App\Http\Requests\AddressRequest as UpdateRequest;
 use Illuminate\Http\Request;
 
-class InterviewCrudController extends CrudController
+class AddressCrudController extends CrudController
 {
 
     public function setUp()
@@ -22,9 +22,9 @@ class InterviewCrudController extends CrudController
 		| BASIC CRUD INFORMATION
 		|--------------------------------------------------------------------------
 		*/
-        $this->crud->setModel("App\Models\Interview");
-        $this->crud->setRoute("admin/interview");
-        $this->crud->setEntityNameStrings('Görüşme', 'Görüşmeler');
+        $this->crud->setModel("App\Models\Address");
+        $this->crud->setRoute("admin/address");
+        $this->crud->setEntityNameStrings('address', 'addresses');
 
         /*
 		|--------------------------------------------------------------------------
@@ -32,53 +32,13 @@ class InterviewCrudController extends CrudController
 		|--------------------------------------------------------------------------
 		*/
 
-        //$this->crud->setFromDb();
+        $this->crud->setFromDb();
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
-        //$this->crud->removeField('content', 'result');
-        $this->crud->addFields([
-            [
-                'name' => 'course',
-                'label' => 'İlgilendiği Konu',
-                'type' => 'text'
-            ],
-            [
-                'name' => 'content',
-                'label' => 'Görüşme İçeriği',
-                'type' => 'textarea'
-            ],
-            [
-                'name' => 'result',
-                'label' => 'Sonuç',
-                'type' => 'radio',
-                'options' => Interview::getResultStringArray(),
-                'inline' => 'true'
-            ]
-        ]);
-        $this->crud->addField([
-            // 1-n relationship
-            'label' => "Müşteri", // Table column heading
-            'type' => "select2_from_ajax",
-            'name' => 'customer_id', // the column that contains the ID of that connected entity;
-            'entity' => 'customer', // the method that defines the relationship in your Model
-            'attribute' => ["fullname", "telephone", "email", "fax"], // foreign key attribute that is shown to user
-            'model' => 'App\Models\Customer', // foreign key model
-            'data_source' => url("api/customer"), // url to controller search function (with /{id} should return model)
-            'placeholder' => "Müşteri arayın", // placeholder for the select
-            'minimum_input_length' => 2, // minimum characters to type before querying results
-        ], 'create');
-        $this->crud->addField([
-                'name' => 'customer_id',
-                'label' => "Müşteri",
-                'type' => 'disabled_relation_text',
-                'attribute' => 'fullname',
-                'relation_model' => 'customer'
-            ], 'update');
-
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
@@ -87,31 +47,6 @@ class InterviewCrudController extends CrudController
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
-        //$this->crud->removeColumns(['course','customer_id', 'content', 'result']);
-        $this->crud->addColumns([
-            [
-                'label' => 'Müşteri',
-                'type' => "model_attribute_attribute",
-                'model_attribute' => 'customer',
-                'model_attribute_attribute' => 'fullname'
-            ],
-            [
-                'name' => 'course',
-                'label' => 'İlgilendiği Konu',
-                'type' => 'text'
-            ],
-            [
-                'name' => 'content',
-                'label' => 'İçerik',
-                'type' => 'text'
-            ],
-            [
-                'name' => 'result',
-                'label' => 'Sonuç',
-                'type' => 'radio',
-                'options' => Interview::getResultStringArray()
-            ]
-        ]);
 
         // ------ CRUD BUTTONS
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
@@ -122,7 +57,7 @@ class InterviewCrudController extends CrudController
         // $this->crud->removeButtonFromStack($name, $stack);
 
         // ------ CRUD ACCESS
-        $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete', 'show']);
+        // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 
         // ------ CRUD REORDER
@@ -164,54 +99,54 @@ class InterviewCrudController extends CrudController
         // $this->crud->limit();
     }
 
-    public function store(StoreRequest $request)
-    {
-        // your additional operations before save here
+	public function store(StoreRequest $request)
+	{
+		// your additional operations before save here
         $redirect_location = parent::storeCrud();
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-    }
+	}
 
-    public function update(UpdateRequest $request)
-    {
-        // your additional operations before save here
+	public function update(UpdateRequest $request)
+	{
+		// your additional operations before save here
         $redirect_location = parent::updateCrud();
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-    }
+	}
 
-    /**
-     * Show the form for creating inserting a new row.
-     *
-     * @return Response
-     */
-    public function create()
+    public function apiCountry(Request $request)
     {
-        $this->crud->hasAccessOrFail('create');
-
-        // prepare the fields you need to show
-        $this->data['crud'] = $this->crud;
-        $this->data['saveAction'] = $this->getSaveAction();
-        $this->data['fields'] = $this->crud->getCreateFields();
-        $this->data['title'] = trans('backpack::crud.add') . ' ' . $this->crud->entity_name;
-        if ($this->crud->request->customer_id) {
-            $customer = Customer::findOrFail($this->crud->request->customer_id);
-            $this->data['title'] = $customer->fullname . ' adlı müşteriye görüşme ekle';
-            $this->data['entry'] = $customer;
-            $this->crud->removeField('customer_id');
-            $this->crud->addField([
-                'name' => 'customer_id',
-                'label' => "Müşteri",
-                'type' => 'disabled_relation_text',
-                'attribute' => 'fullname',
-                'model' => $customer
-            ]);
-
-            return view("crud::create_interview_for_customer", $this->data);
+        $query = $request->input("q");
+        $page = $request->input("page");
+        if($query){
+            return Country::where("name", "LIKE", $query . "%")->paginate(10);
         }
-        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
-        return view($this->crud->getCreateView(), $this->data);
+        return Country::paginate(10);
     }
+
+    public function apiCountryShow($id)
+    {
+        return Country::findOrFail($id);
+    }
+
+
+    public function apiZone(Request $request, $countryid)
+    {
+        $query = $request->input("q");
+        $page = $request->input("page");
+        if($query){
+            return Country::findOrFail($countryid)->zones()->where("name", "LIKE", $query . "%")->paginate(10);
+        }
+        return Country::findOrFail($countryid)->zones()->paginate(10);
+    }
+
+    public function apiZoneShow($id)
+    {
+        return Zone::findOrFail($id);
+    }
+
+
 }

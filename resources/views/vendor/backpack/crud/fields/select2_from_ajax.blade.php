@@ -98,7 +98,7 @@
                         // the input tag has a value attribute preloaded that points to a preselected repository's id
                         // this function resolves that id attribute to an object that select2 can render
                         // using its formatResult renderer - that way the repository name is shown preselected
-                        $.ajax("{{ $field['data_source'] }}" + '/' + "{{ $field['value'] ? ( old($field['name']) ? 0 : "" ) : "" }}", {
+                        $.ajax("{{ $field['data_source'] }}" + '/' + "{{ isset($field['value']) ? ( old($field['name']) ? 0 : "" ) : "" }}", {
                             dataType: "json"
                         }).done(function(data) {
                             var callbackArg = {};

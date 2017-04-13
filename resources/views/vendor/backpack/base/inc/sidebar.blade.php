@@ -26,6 +26,10 @@
                     <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/interview') }}"><i
                                     class="fa fa-pencil"></i> <span>Görüşmeler</span></a></li>
                 @endcan
+                @can('addressResource')
+                    <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/address') }}"><i
+                                    class="fa fa-pencil"></i> <span>Adresler</span></a></li>
+                @endcan
 
                 <li class="header">{{ trans('backpack::base.administration') }}</li>
                 <!-- ================================================ -->

@@ -14,20 +14,20 @@ return [
     */
 
     // Forms
-    'save_action_save_and_new' => 'Save and new item',
-    'save_action_save_and_edit' => 'Save and edit this item',
-    'save_action_save_and_back' => 'Save and back',
-    'save_action_changed_notification' => 'Default behaviour after saving has been changed.',
+    'save_action_save_and_new' => 'Kaydet ve yeni kayıt',
+    'save_action_save_and_edit' => 'Kydet ve bu kayıdı düzenle',
+    'save_action_save_and_back' => 'Kaydet ve geri dön',
+    'save_action_changed_notification' => 'Kaydettikten sonraki varsayılan davranış değiştirildi',
 
     // Create form
-    'add'                 => 'Add',
-    'back_to_all'         => 'Back to all ',
-    'cancel'              => 'Cancel',
-    'add_a_new'           => 'Add a new ',
+    'add'                 => 'Ekle',
+    'back_to_all'         => 'Geri dön ',
+    'cancel'              => 'İptal',
+    'add_a_new'           => 'Yeni ekle ',
 
     // Edit form
-    'edit'                 => 'Edit',
-    'save'                 => 'Save',
+    'edit'                 => 'Düzenle',
+    'save'                 => 'Kaydet',
 
     // Revisions
     'revisions'            => 'Revisions',
@@ -41,42 +41,42 @@ return [
     'revision_restored'    => 'Revision successfully restored',
 
     // CRUD table view
-    'all'                       => 'All ',
-    'in_the_database'           => 'in the database',
-    'list'                      => 'List',
-    'actions'                   => 'Actions',
-    'preview'                   => 'Preview',
-    'delete'                    => 'Delete',
+    'all'                       => 'Bütün ',
+    'in_the_database'           => 'veritabaındaki',
+    'list'                      => 'Liste',
+    'actions'                   => 'Eylemler',
+    'preview'                   => 'Önizleme',
+    'delete'                    => 'Sil',
     'admin'                     => 'Admin',
-    'details_row'               => 'This is the details row. Modify as you please.',
-    'details_row_loading_error' => 'There was an error loading the details. Please retry.',
+    'details_row'               => 'Bu detaylar satırı.',
+    'details_row_loading_error' => 'Detaylar yüklenirken hata oluştu. Lütfen tekrar deneyin.',
 
         // Confirmation messages and bubbles
-        'delete_confirm'                              => 'Are you sure you want to delete this item?',
-        'delete_confirmation_title'                   => 'Item Deleted',
-        'delete_confirmation_message'                 => 'The item has been deleted successfully.',
-        'delete_confirmation_not_title'               => 'NOT deleted',
-        'delete_confirmation_not_message'             => "There's been an error. Your item might not have been deleted.",
-        'delete_confirmation_not_deleted_title'       => 'Not deleted',
-        'delete_confirmation_not_deleted_message'     => 'Nothing happened. Your item is safe.',
+        'delete_confirm'                              => 'Bu kaydı silmek istediğinizden emin misiniz?',
+        'delete_confirmation_title'                   => 'Kayıt silindi',
+        'delete_confirmation_message'                 => 'Kayıt başarılı bir şekilde silindi.',
+        'delete_confirmation_not_title'               => 'SilinMEdi.',
+        'delete_confirmation_not_message'             => "Bir hata oluştu. Kayıt silinmemiş olabilir.",
+        'delete_confirmation_not_deleted_title'       => 'SilinMEdi.',
+        'delete_confirmation_not_deleted_message'     => 'Hiçbir şey olmadı. Kaydınız güvende.',
 
         // DataTables translation
-        'emptyTable'     => 'No data available in table',
-        'info'           => 'Showing _START_ to _END_ of _TOTAL_ entries',
-        'infoEmpty'      => 'Showing 0 to 0 of 0 entries',
-        'infoFiltered'   => '(filtered from _MAX_ total entries)',
-        'infoPostFix'    => '',
-        'thousands'      => ',',
-        'lengthMenu'     => '_MENU_ records per page',
-        'loadingRecords' => 'Loading...',
-        'processing'     => 'Processing...',
-        'search'         => 'Search: ',
-        'zeroRecords'    => 'No matching records found',
+        'emptyTable'     => 'Tabloda kayıt yok.',
+        'info'           => '_TOTAL_ kayıttan _START_ ile _END_ arası gösteriliyor.',
+        'infoEmpty'      => '0 kayıttan 0 ile 0 arası gösteriliyor.',
+        'infoFiltered'   => '(_MAX_ arasından filtrelendi)',
+        'infoPostFix'    => ' ',
+        'thousands'      => '.',
+        'lengthMenu'     => 'sayfa başına _MENU_ kayıt',
+        'loadingRecords' => 'Yükleniyor...',
+        'processing'     => 'İşleniyor...',
+        'search'         => 'Ara: ',
+        'zeroRecords'    => 'Eşleşen kayıt bulunamadı',
         'paginate'       => [
-            'first'    => 'First',
-            'last'     => 'Last',
-            'next'     => 'Next',
-            'previous' => 'Previous',
+            'first'    => 'İlk',
+            'last'     => 'Son',
+            'next'     => 'Sonraki',
+            'previous' => 'Önceki',
         ],
         'aria' => [
             'sortAscending'  => ': activate to sort column ascending',
@@ -100,8 +100,8 @@ return [
         'reorder_error_message'        => 'Your order has not been saved.',
 
     // CRUD yes/no
-        'yes' => 'Yes',
-        'no' => 'No',
+        'yes' => 'Evet',
+        'no' => 'Hayır',
 
     // Fields
         'browse_uploads' => 'Browse uploads',
@@ -118,5 +118,5 @@ return [
         'table_max_reached' => 'Maximum number of :max reached',
 
     // File manager
-    'file_manager' => 'File Manager',
+    'file_manager' => 'Dosya yöneticisi',
 ];
